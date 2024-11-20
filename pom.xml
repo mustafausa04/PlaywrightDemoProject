@@ -16,7 +16,6 @@
 
 
     <dependencies>
-
         <!-- https://mvnrepository.com/artifact/com.microsoft.playwright/playwright -->
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
@@ -45,8 +44,6 @@
             <version>7.20.1</version>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
 </project>
