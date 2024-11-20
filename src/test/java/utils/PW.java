@@ -1,10 +1,8 @@
 package utils;
 
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -15,6 +13,8 @@ public class PW {
 
     public static Playwright playwright;
     static Browser browser;
+
+    static BrowserContext context;
     static Page page;
 
     public static Page getPage() {
@@ -44,16 +44,20 @@ public class PW {
                     browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
                     break;
             }
-            page = browser.newPage();
+            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920, 1080));
+            page = context.newPage();
         }
         return page;
     }
 
-    public static void quitPage() {
+    public static void closePage() {
         if (page != null) {
-            playwright.close();
+            context.close();
             page = null;
         }
+    }
 
+    public static void closePlaywright(){
+        playwright.close();
     }
 }
