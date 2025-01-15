@@ -14,15 +14,24 @@ public class PlaywrightDemo {
 
         SauceDemoPage saucepage = new SauceDemoPage();
 
-//        Playwright pw = Playwright.create();
-//        Browser browser = pw.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setChannel("chrome"));
-//        Page page = browser.newPage();
-//
-//        page.navigate("https://saucedemo.com");
-//        String pageTitle = page.title();
-//        System.out.println(pageTitle);
+        //playwright is broken down to 3 interfaces (playwright browser engin, browser like chrome, firefox
+        //and page)
 
+        //to declare the playwright
+        //Playwright pw = Playwright.create();
 
+        //to declare the browser
+        //Browser browser = pw.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setChannel("chrome"));
+
+        //to declare the page
+        //Page page = browser.newPage();
+
+        //here we will execute
+        //page.navigate("https://saucedemo.com");
+        //String pageTitle = page.title();
+        //System.out.println(pageTitle);
+
+        //since we created PW class then we don't need to use the above steps anymore
         PW.getPage().navigate("https://saucedemo.com");
         String pageTitle = PW.getPage().title();
         System.out.println(pageTitle);
@@ -33,6 +42,6 @@ public class PlaywrightDemo {
         PW.getPage().locator(saucepage.sauceLoginBtn).click();
 
         assertThat(PW.getPage().locator(saucepage.sauceHomePageProductHeader)).isVisible();
-
     }
+
 }

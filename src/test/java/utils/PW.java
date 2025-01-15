@@ -10,13 +10,13 @@ import java.util.Map;
 
 public class PW {
 
-
+    //hre we will create a pw driver and compare it to Driver class that we used to create from before
     public static Playwright playwright;
     static Browser browser;
-
     static BrowserContext context;
     static Page page;
 
+    //replace the Driver with Page
     public static Page getPage() {
         playwright = Playwright.create();
         String browserType = System.getProperty("browser");
