@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
         features="./src/test/resources/features",
         glue="steps",
         tags="@regression"
+        //tags="@sauce_valid_login"
+        //tags="@invalid_pass_login"
 )
+
 public class TestRunner {
 }

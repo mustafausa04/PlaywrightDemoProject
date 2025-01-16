@@ -8,7 +8,7 @@ import utils.PW;
 
 public class Hooks {
 
-
+//to close the page (not the browser) after each test
     @After
     public void aftereach(Scenario scenario) {
         if (scenario.isFailed()) {
@@ -18,6 +18,7 @@ public class Hooks {
         PW.closePage();
     }
 
+    //to close the browser
     @AfterAll
     public static void afterAll() {
         PW.closePlaywright();

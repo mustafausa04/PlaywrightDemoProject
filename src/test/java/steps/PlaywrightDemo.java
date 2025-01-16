@@ -12,6 +12,7 @@ public class PlaywrightDemo {
 
     public static void main(String[] args) {
 
+        //creating an object of the class SaucDemoPage so we can call it in the bottom
         SauceDemoPage saucepage = new SauceDemoPage();
 
         //playwright is broken down to 3 interfaces (playwright browser engin, browser like chrome, firefox
@@ -37,10 +38,12 @@ public class PlaywrightDemo {
         System.out.println(pageTitle);
         System.out.println(PW.getPage().url());
 
+        //we are calling the instance or object of the class SaucDemoPage and then assign the values
         PW.getPage().locator(saucepage.sauceUsername).fill("standard_user");
         PW.getPage().locator(saucepage.saucePassword).fill("secret_sauce");
         PW.getPage().locator(saucepage.sauceLoginBtn).click();
 
+        //to verify that the word (Product) is available
         assertThat(PW.getPage().locator(saucepage.sauceHomePageProductHeader)).isVisible();
     }
 

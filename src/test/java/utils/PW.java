@@ -44,6 +44,7 @@ public class PW {
                     browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
                     break;
             }
+            //this is to make the browser open multi pages without closing and opening the browser each time
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920, 1080));
             page = context.newPage();
         }
